@@ -72,12 +72,11 @@ module.exports = function(options) {
           type: 'input',
           name: 'feiyun',
           message:
-            '请输入飞云任务ID(如有)',
+            'feiyun mission id (e.g. 1234): (press enter to skip)',
           default: options.defaultScope,
           filter: function(value) {
-            return value
-              ? '#'+value+'_'
-              : value;
+            return value.trim();
+
           }
         },
         {
@@ -211,8 +210,9 @@ module.exports = function(options) {
         // parentheses are only needed when a scope is present
         var scope = answers.scope ? '(' + answers.scope + ')' : '';
 
+        var feiyun = answers.feiyun ? '#' + answers.feiyun + '_': '';
         // Hard limit this line in the validate
-        var head = answers.feiyun + answers.type + scope + ': ' + answers.subject;
+        var head = feiyun + answers.type + scope + ': ' + answers.subject;
 
         // Wrap these lines at options.maxLineWidth characters
         var body = answers.body ? wrap(answers.body, wrapOptions) : false;
