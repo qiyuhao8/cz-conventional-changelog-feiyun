@@ -102,7 +102,7 @@ module.exports = function (options) {
           name: 'subject',
           message: function (answers) {
             return (
-              '简短的提交主题(subject)，不超过 ' +
+              '简短的提交描述，不超过 ' +
               maxSummaryLength(options, answers) +
               ' 字符:\n'
             );
