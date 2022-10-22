@@ -1,7 +1,7 @@
 {
-  "name": "cz-conventional-changelog",
+  "name": "cz-conventional-changelog-feiyun",
   "version": "0.0.1",
-  "description": "Commitizen adapter following the conventional-changelog format.",
+  "description": "Commitizen adapter following the conventional-changelog and feiyun format.",
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
@@ -33,7 +33,7 @@
     "@types/mocha": "9.1.1",
     "chai": "4.3.6",
     "cosmiconfig": "5.2.1",
-    "mocha": "9.2.2",
+    "mocha": "^9.2.2",
     "mock-require": "3.0.3",
     "prettier": "1.19.1",
     "semantic-release": "19.0.5",

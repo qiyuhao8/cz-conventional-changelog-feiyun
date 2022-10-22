@@ -1,4 +1,6 @@
-# cz-conventional-changelog
+# cz-conventional-changelog-feiyun
+
+Fork from cz-conventional-changelog,adapt for feiyun.
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/commitizen/cz-conventional-changelog.svg)](https://greenkeeper.io/)
 
