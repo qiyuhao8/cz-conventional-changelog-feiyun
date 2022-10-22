@@ -1,6 +1,6 @@
 {
   "name": "cz-conventional-changelog-feiyun",
-  "version": "0.0.1",
+  "version": "0.5",
   "description": "Commitizen adapter following the conventional-changelog and feiyun format.",
   "main": "index.js",
   "scripts": {
