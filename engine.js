@@ -72,7 +72,7 @@ module.exports = function(options) {
           type: 'input',
           name: 'feiyun',
           message:
-            'feiyun mission id (e.g. 1234): (press enter to skip)',
+            '(可选)请输入飞云ID (e.g. 1234): (回车跳过)',
           default: options.defaultScope,
           filter: function(value) {
             return value.trim();
@@ -82,7 +82,7 @@ module.exports = function(options) {
         {
           type: 'list',
           name: 'type',
-          message: "Select the type of change that you're committing:",
+          message: "请选择提交类型:",
           choices: choices,
           default: options.defaultType
         },
@@ -90,7 +90,7 @@ module.exports = function(options) {
           type: 'input',
           name: 'scope',
           message:
-            'What is the scope of this change (e.g. component or file name): (press enter to skip)',
+            '(可选)请输入提交范围 (e.g. component or file name): (回车跳过)',
           default: options.defaultScope,
           filter: function(value) {
             return options.disableScopeLowerCase
@@ -103,23 +103,23 @@ module.exports = function(options) {
           name: 'subject',
           message: function(answers) {
             return (
-              'Write a short, imperative tense description of the change (max ' +
+              '简单紧凑命令式的提交主题，不超过 ' +
               maxSummaryLength(options, answers) +
-              ' chars):\n'
+              ' 字符):\n'
             );
           },
           default: options.defaultSubject,
           validate: function(subject, answers) {
             var filteredSubject = filterSubject(subject, options.disableSubjectLowerCase);
             return filteredSubject.length == 0
-              ? 'subject is required'
+              ? '主题是必须的'
               : filteredSubject.length <= maxSummaryLength(options, answers)
               ? true
-              : 'Subject length must be less than or equal to ' +
+              : '主题不能超过 ' +
                 maxSummaryLength(options, answers) +
-                ' characters. Current length is ' +
+                ' 字符。目前资负数： ' +
                 filteredSubject.length +
-                ' characters.';
+                ' 字符';
           },
           transformer: function(subject, answers) {
             var filteredSubject = filterSubject(subject, options.disableSubjectLowerCase);
@@ -137,13 +137,13 @@ module.exports = function(options) {
           type: 'input',
           name: 'body',
           message:
-            'Provide a longer description of the change: (press enter to skip)\n',
+            '请提供更详细的提交描述: (回车跳过)\n',
           default: options.defaultBody
         },
         {
           type: 'confirm',
           name: 'isBreaking',
-          message: 'Are there any breaking changes?',
+          message: '是否有破坏性改变(BREAKING CHANGE)?',
           default: false
         },
         {
@@ -151,14 +151,14 @@ module.exports = function(options) {
           name: 'breakingBody',
           default: '-',
           message:
-            'A BREAKING CHANGE commit requires a body. Please enter a longer description of the commit itself:\n',
+            '请输入破坏性改变的描述:\n',
           when: function(answers) {
             return answers.isBreaking && !answers.body;
           },
           validate: function(breakingBody, answers) {
             return (
               breakingBody.trim().length > 0 ||
-              'Body is required for BREAKING CHANGE'
+              '破坏性改变的描述是必须的'
             );
           }
         },
