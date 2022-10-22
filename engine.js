@@ -72,13 +72,10 @@ module.exports = function (options) {
           type: 'input',
           name: 'feiyun',
           message:
-
             '(可选)请输入飞云ID (e.g. 1234): (回车跳过)',
           default: options.defaultScope,
           filter: function (value) {
             return value.trim();
-
-
           }
         },
         {
@@ -105,9 +102,9 @@ module.exports = function (options) {
           name: 'subject',
           message: function (answers) {
             return (
-              '简单紧凑命令式的提交主题，不超过 ' +
+              '简短的提交主题(subject)，不超过 ' +
               maxSummaryLength(options, answers) +
-              ' 字符):\n'
+              ' 字符:\n'
             );
           },
           default: options.defaultSubject,
@@ -119,7 +116,7 @@ module.exports = function (options) {
                 ? true
                 : '主题不能超过 ' +
                 maxSummaryLength(options, answers) +
-                ' 字符。目前资负数： ' +
+                ' 字符。目前字符数： ' +
                 filteredSubject.length +
                 ' 字符';
           },
