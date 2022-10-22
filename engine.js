@@ -69,6 +69,18 @@ module.exports = function(options) {
       // collection library if you prefer.
       cz.prompt([
         {
+          type: 'input',
+          name: 'feiyun',
+          message:
+            '请输入飞云任务ID(如有)',
+          default: options.defaultScope,
+          filter: function(value) {
+            return value
+              ? '#'+value+'_'
+              : value;
+          }
+        },
+        {
           type: 'list',
           name: 'type',
           message: "Select the type of change that you're committing:",
@@ -200,7 +212,7 @@ module.exports = function(options) {
         var scope = answers.scope ? '(' + answers.scope + ')' : '';
 
         // Hard limit this line in the validate
-        var head = answers.type + scope + ': ' + answers.subject;
+        var head = answers.feiyun + answers.type + scope + ': ' + answers.subject;
 
         // Wrap these lines at options.maxLineWidth characters
         var body = answers.body ? wrap(answers.body, wrapOptions) : false;

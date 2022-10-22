@@ -1,7 +1,7 @@
 {
-  "name": "cz-conventional-changelog",
+  "name": "cz-conventional-changelog-feiyun",
   "version": "0.0.1",
-  "description": "Commitizen adapter following the conventional-changelog format.",
+  "description": "Commitizen adapter following the conventional-changelog and feiyun format.",
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
